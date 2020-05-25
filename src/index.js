@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import { render } from "react-dom";
+import { App } from "./component/app/app.component";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import { ThemeProvider } from "styled-components";
+
+import theme from "./utils/theme";
+import GlobalStyle from "./utils/global";
+
+const here = document.querySelector("#here");
+
+render(
+  <ThemeProvider theme={theme}>
+    <>
+      <App />
+      <GlobalStyle></GlobalStyle>
+    </>
+  </ThemeProvider>,
+  here
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
